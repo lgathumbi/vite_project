@@ -74,13 +74,19 @@ h3 {
 }
 .navbar {
   background-color: #007bff;
+  width: auto;
+  justify-content: space-between;
+
 }
 
 .navbar-brand {
   color: white;
-  font-weight: bold;
-  font-size: 1.5em;
-  text-transform: uppercase;
+  font-size: 1em;
+  text-transform: lowercase;
+}
+.navbar-h1{
+  font-size: 2em;
+  color:white;
 }
 
 .navbar-brand:hover {
@@ -100,7 +106,10 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: auto;
 }
+
+
 .destination-container {
   display: flex;
   flex-direction: column;

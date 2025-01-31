@@ -7,7 +7,6 @@ function ItineraryList({ itineraries, setItineraries, setError }) {
     end_date: "",
   });
 
-  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewItinerary((prev) => ({
@@ -16,11 +15,9 @@ function ItineraryList({ itineraries, setItineraries, setError }) {
     }));
   };
 
-  
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
     if (!newItinerary.title || !newItinerary.start_date || !newItinerary.end_date) {
       setError("All fields are required.");
       return;
@@ -53,14 +50,13 @@ function ItineraryList({ itineraries, setItineraries, setError }) {
         console.error("Error adding itinerary:", error);
         setError("Failed to add itinerary.");
       });
-    
   };
 
   useEffect(() => {
     fetch("/api/itineraries")
       .then((res) => res.json())
       .then((data) => {
-        setItineraries(data); 
+        setItineraries(data);
       })
       .catch((error) => {
         console.error("Error fetching itineraries:", error);
@@ -69,11 +65,11 @@ function ItineraryList({ itineraries, setItineraries, setError }) {
   }, [setItineraries, setError]);
 
   return (
-    <div>
+    <div className="itinerary-list-container">
       <h2>Itineraries</h2>
       {Array.isArray(itineraries) && itineraries.length > 0 ? (
         itineraries.map((itinerary) => (
-          <div key={itinerary.id} style={{ marginBottom: "10px" }}>
+          <div key={itinerary.id} className="itinerary-card">
             <h3>{itinerary.title}</h3>
             <p>Start: {itinerary.start_date}</p>
             <p>End: {itinerary.end_date}</p>

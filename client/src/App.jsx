@@ -15,7 +15,7 @@ function App() {
     <>
       <Router>
         <NavBar />
-        <h1 className='justify-content = center'>Travel Itinerary services </h1>
+       
         <Routes>
           <Route
             path="/"
